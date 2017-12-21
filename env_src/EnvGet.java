@@ -1,6 +1,12 @@
+package env_get;
+/*
+ * https://docs.oracle.com/javase/tutorial/essential/environment/env.html
+ */
+
+
 import java.util.Map;
 
-public  class EnvMap {
+public  class EnvGet {
 //    public static void main (String[] args) {
 	public String getEnv(String inp) {
     		String envName = inp;
@@ -19,12 +25,13 @@ public  class EnvMap {
         return output;
 	}
 	
+	
 //For test    
 public static void main(String[] args)
     {   
 		String envVar = "USER";
 		String envVar2 = "user";
-		EnvMap env = new EnvMap();
+		EnvGet env = new EnvGet();
 		String resultEnvar = env.getEnv(envVar);
 		System.out.println(resultEnvar);
 		String resultEnvar2 = env.getEnv(envVar2);

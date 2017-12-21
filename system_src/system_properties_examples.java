@@ -44,8 +44,30 @@ public class system_properties_examples {
 		System.setProperty(key, value);
 	}
 
+	static String [] copy_array(String ar1[],int ar1Start, String ar2[],  int ar2Start, int numEl) 
+	/*
+	 * arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
+	 * five
+	 * two
+	 * three
+	 * eight
+	 */
+	{
+		java.lang.System.arraycopy(ar1, ar1Start, ar2, ar2Start, numEl);
+		return ar2;
+	}
+	
+	
+	
 //For test    
 public static void main(String[] args) {
+	
+	String arrayString [] = {"one","two","three","four"};
+	String arrayString2 [] = {"five","six","seven","eight"};
+	int arrayInt [] = {1,2,3,4,5,6,7,8,9};
+	int ar1Int = 2;
+	int ar2Int = 1;
+	int numElements = 2;
 	system_properties_examples ex = new system_properties_examples();
 	ex.get_sys_properties();
 	Map<String,String> mProps = ex.get_sys_properties();
@@ -58,5 +80,9 @@ public static void main(String[] args) {
 	System.out.println(ex.get_sys_property("user"));
 	ex.set_sys_property("me", "reddog");
 	System.out.println(ex.get_sys_property("me"));
-	
+	String [] ar = ex.copy_array(arrayString,ar1Int, arrayString2, ar2Int, numElements);
+	System.out.println(ar);
+	for(String item:ar ) {
+		java.lang.System.out.print(item + ",");
+	}
 }}
