@@ -1,9 +1,7 @@
 package system_src;
 
 import static org.junit.Assert.*;
-
 import java.util.Map;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -43,6 +41,15 @@ public class TestSystemProperties {
 		system_properties_examples sys = new system_properties_examples();
 		sys.set_sys_property("me", "reddog");
 		String expected = "me=reddog";
+		String actual = sys.get_sys_property("me");
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testClearSystemProperty() {
+		system_properties_examples sys = new system_properties_examples();
+		sys.clear_property("me");
+		String expected = "me=java.lang.NullPointerException";
 		String actual = sys.get_sys_property("me");
 		assertEquals(expected, actual);
 	}
